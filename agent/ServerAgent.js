@@ -28,6 +28,7 @@ class ServerAgent {
       * Wait
       * Navigate (to an x,y coordinate)
       * Sleep
+      * Say (something)
 
       # Responses
       
@@ -36,7 +37,8 @@ class ServerAgent {
       {
         action: {
           type: "move",
-          direction: "up" | "down" | "left" | "right"
+          direction: "up" | "down" | "left" | "right",
+          reason: "I want to move up"
         }
       }
       

@@ -35,7 +35,12 @@ class Agent {
       }
 
       if (res.type === 'nextMove') {
+
         const { data } = res;
+
+        // Capture the reason from data.action.reason
+        console.log(`Character ${this.agent_id} chose action ${data.action.type} because ${data.action.reason}`);
+
         switch (data.action.type) {
           case 'move':
             this.moveAndCheckCollision(data.action.direction, this.fieldMapTileMap);
@@ -52,6 +57,8 @@ class Agent {
             }
             this.nextMove();
             break;
+          case 'say':
+            console.log(`Character ${this.agent_id} says: ${data.action.message}`);
           default:
             setTimeout(() => {
               this.nextMove();
